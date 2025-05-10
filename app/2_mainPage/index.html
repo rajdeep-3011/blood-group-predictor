@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group Prediction</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Non-Invasive Blood Group Prediction Using Biometrics</h1>
+        <button class="help-btn" onclick="window.location.href='../3_HelpUsPage/helpImprove.html' ">Help Us Improve</button>
+    </div>
+    <div class="main-content">
+        <div class="left-side">
+            <div class="upload-title">Upload Fingerprint Image</div>
+            <div class="upload-box" 
+                id="uploadArea" 
+                ondrop="dropHandler(event)" 
+                ondragover="dragOverHandler(event)" 
+                onclick="triggerFileInput()"
+                aria-label="Upload fingerprint image">
+                <span>Drag & Drop or Click to Upload</span>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="finger-selection-title">Select the Finger for Biometrics</div>
+            <div class="finger-selection">
+                <div class="hand-selection-row">
+                    <button class="hand-btn" id="right-hand-btn" aria-label="Select Right Hand">Right Hand</button>
+                    <button class="hand-btn" id="left-hand-btn" aria-label="Select Left Hand">Left Hand</button>
+                </div>
+                <div class="finger-buttons-row">
+                    <button class="finger-btn" data-finger="Thumb" aria-label="Thumb Finger">Thumb</button>
+                    <button class="finger-btn" data-finger="Index" aria-label="Index Finger">Index Finger</button>
+                    <button class="finger-btn" data-finger="Middle" aria-label="Middle Finger">Middle Finger</button>
+                    <button class="finger-btn" data-finger="Ring" aria-label="Ring Finger">Ring Finger</button>
+                    <button class="finger-btn" data-finger="Little" aria-label="Little Finger">Little Finger</button>
+                </div>
+            </div>
+            <button class="detect-btn" onclick="processFingerprints()" aria-label="Submit Fingerprint">Submit</button>
+        </div>
+        <div class="right-side">
+            <div class="prediction-result-box">
+                <h2>Your Blood Group is...</h2>
+                <div id="predictionResult">Waiting for input...</div>
+            </div>
+            <div class="blood-group-details-box">
+                <h2>Amazing Facts</h2>
+                <div id="bloodGroupDetails" class="placeholder-content">
+                    <div class="blood-type-examples">
+                        <div class="example" data-bloodtype="A+">
+                            <span class="type">A+</span>
+                            <span>Common in Europe (28%)</span>
+                            <span>Can donate to A+ and AB+</span>
+                        </div>
+                        <div class="example" data-bloodtype="A-">
+                            <span class="type">A-</span>
+                            <span>Rare (6%)</span>
+                            <span>Can donate to A+, A-, AB+, AB-</span>
+                        </div>
+                        <div class="example" data-bloodtype="B+">
+                            <span class="type">B+</span>
+                            <span>Common in Asia (22%)</span>
+                            <span>Can donate to B+ and AB+</span>
+                        </div>
+                        <div class="example" data-bloodtype="B-">
+                            <span class="type">B-</span>
+                            <span>Very Rare (2%)</span>
+                            <span>Can donate to B+, B-, AB+, AB-</span>
+                        </div>
+                        <div class="example" data-bloodtype="AB+">
+                            <span class="type">AB+</span>
+                            <span>Universal Recipient (4%)</span>
+                            <span>Can receive from all Types</span>
+                        </div>
+                        <div class="example" data-bloodtype="AB-">
+                            <span class="type">AB-</span>
+                            <span>Rarest (&lt;1%)</span>
+                            <span>Can donate to AB+ and AB-</span>
+                        </div>
+                        <div class="example" data-bloodtype="O+">
+                            <span class="type">O+</span>
+                            <span>Most Common (37%)</span>
+                            <span>Can donate to all Rh+ Types</span>
+                        </div>
+                        <div class="example" data-bloodtype="O-">
+                            <span class="type">O-</span>
+                            <span>Universal Donor (7%)</span>
+                            <span>Can donate to all Types</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="did-you-know-box">
+                    <h3>Did you know?</h3>
+                    <div class="fact-carousel">
+                        <button class="carousel-btn" onclick="prevFact()" aria-label="Previous fact">←</button>
+                        <div id="dynamicFact" class="fact-content">
+                            <p>People with type O- blood are universal donors and can give blood to anyone.</p>
+                        </div>
+                        <button class="carousel-btn" onclick="nextFact()" aria-label="Next fact">→</button>
+                    </div>
+                </div>    
+                <p class="waste">Submit your fingerprint to see detailed information about your blood type.</p>
+            </div>
+            <button class="page-reload" onclick="location.reload()" aria-label="Submit Fingerprint"></button>
+            <!-- <button class="page-reload" onclick="location.reload()" aria-label="Reload Page">
+                <span class="page-reload-text">Reload Page</span>
+                <span class="page-reload-icon">↻</span>
+            </button> -->
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

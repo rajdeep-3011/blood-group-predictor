@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Us Improve: Fingerprint Data Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="nav-title">Help Us Improve by providing Precious Data For Social Welfare</h1>
+        <div class="scanner-status" id="scannerStatus">Scanner: Checking...</div>
+        <button class="predict-btn" onclick="goToBGPage()">Predict Blood Group</button>
+    </div>
+    <div class="main-content">
+        <div class="upload-title">Upload Fingerprint Images</div>
+        <div class="upload-description">Either Drag & Drop images or Click to Upload</div>
+        <table class="fingerprint-table">
+            <tr>
+                <td colspan="5" class="hand-name">Right Hand</td>
+            </tr>
+            <tr>
+                <td><div class="upload-box" data-hand="Right" data-finger="Thumb" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Thumb</div></td>
+                <td><div class="upload-box" data-hand="Right" data-finger="Index Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Index Finger</div></td>
+                <td><div class="upload-box" data-hand="Right" data-finger="Middle Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Middle Finger</div></td>
+                <td><div class="upload-box" data-hand="Right" data-finger="Ring Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Ring Finger</div></td>
+                <td><div class="upload-box" data-hand="Right" data-finger="Little Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Little Finger</div></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="hand-name">Left Hand</td>
+            </tr>
+            <tr>
+                <td><div class="upload-box" data-hand="Left" data-finger="Thumb" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Thumb</div></td>
+                <td><div class="upload-box" data-hand="Left" data-finger="Index Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Index Finger</div></td>
+                <td><div class="upload-box" data-hand="Left" data-finger="Middle Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Middle Finger</div></td>
+                <td><div class="upload-box" data-hand="Left" data-finger="Ring Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Ring Finger</div></td>
+                <td><div class="upload-box" data-hand="Left" data-finger="Little Finger" ondrop="dropHandler(event, this)" ondragover="dragOverHandler(event)" onclick="uploadImage(this)" data-uploaded="false">Little Finger</div></td>
+            </tr>
+        </table>
+        <div class="form-section">
+            <div class="blood-group-label">Select Your Blood Group:</div>
+            <div class="blood-group-buttons">
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">A+</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">A-</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">B+</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">B-</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">AB+</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">AB-</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">O+</button>
+                <button class="blood-group-btn" onclick="selectBloodGroup(this)">O-</button>
+            </div>
+            <button class="submit-btn" onclick="submitForm()">Submit</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

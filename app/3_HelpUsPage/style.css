@@ -1,0 +1,296 @@
+/* ===== Base Styles ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: url('bg.webp') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+}
+
+/* ===== Navbar Styles ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  margin: 30px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  margin: 0 auto;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-title{
+  font-size: 30px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Main Content Styles ===== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  width: 95%;
+  max-width: 900px;
+  padding: 10px;
+}
+
+.upload-title {
+  font-size: 25px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.upload-description {
+  font-size: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* ===== Fingerprint Table Styles ===== */
+.fingerprint-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin-bottom: 1px;
+}
+
+.fingerprint-table td , .hand-name{
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.upload-box {
+  width: 18vh;
+  height: 18vh;
+  border: 2px dashed white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  margin: 5px;
+  transition: background 0.3s;
+}
+
+.upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.upload-box.dragover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Form Section Styles ===== */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.blood-group-label {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.blood-group-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 10px;
+}
+
+.blood-group-btn, .predict-btn {
+  background-color: white;
+  color: black;
+  padding: 8px 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.predict-btn {
+  font-size: 14px;
+  width: 11vw;
+  margin-right: 80px;
+  padding: 10px;
+  color: #d63031;
+}
+
+.blood-group-btn:hover, .predict-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: #000;
+  background:  #80dda7;
+}
+.predict-btn:hover{
+  color: #fff;
+  background-color: #d63031;
+}
+
+.blood-group-btn.selected {
+  color: white;
+  background-color : rgba(0,0,0,0.6);
+}
+
+.submit-btn {
+  background-color: #27ae60;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== Thank You Screen ===== */
+.thank-you-screen, .blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.thank-you-screen span {
+  font-size: 100px;
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.thank-you-screen div {
+  color: yellow;
+  font-size: 30px;
+  opacity: 0;
+  animation: slideUp 0.8s 0.3s ease-out forwards;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 999px) {
+  .fingerprint-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto repeat(5, 1fr);
+    gap: 10px;
+    background: transparent;
+  }
+
+  .fingerprint-table tr {
+    display: contents;
+  }
+
+  /* Right Hand Header */
+  .fingerprint-table tr:nth-child(1) td {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Left Hand Header */
+  .fingerprint-table tr:nth-child(3) td {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Right Hand Fingers */
+  .fingerprint-table tr:nth-child(2) td {
+    grid-column: 1;
+  }
+
+  /* Left Hand Fingers */
+  .fingerprint-table tr:nth-child(4) td {
+    grid-column: 2;
+  }
+
+  /* Position each finger in the grid */
+  .fingerprint-table tr:nth-child(2) td:nth-child(1) { grid-row: 2; }
+  .fingerprint-table tr:nth-child(2) td:nth-child(2) { grid-row: 3; }
+  .fingerprint-table tr:nth-child(2) td:nth-child(3) { grid-row: 4; }
+  .fingerprint-table tr:nth-child(2) td:nth-child(4) { grid-row: 5; }
+  .fingerprint-table tr:nth-child(2) td:nth-child(5) { grid-row: 6; }
+
+  .fingerprint-table tr:nth-child(4) td:nth-child(1) { grid-row: 2; }
+  .fingerprint-table tr:nth-child(4) td:nth-child(2) { grid-row: 3; }
+  .fingerprint-table tr:nth-child(4) td:nth-child(3) { grid-row: 4; }
+  .fingerprint-table tr:nth-child(4) td:nth-child(4) { grid-row: 5; }
+  .fingerprint-table tr:nth-child(4) td:nth-child(5) { grid-row: 6; }
+
+  .upload-box {
+    width: 100%;
+    height: 120px;
+    margin: 0;
+  }
+}

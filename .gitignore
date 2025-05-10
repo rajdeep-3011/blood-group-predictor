@@ -1,8 +1,16 @@
 __pycache__/
 *.pyc
+<<<<<<< HEAD
 *.pkl
 *.keras
 *.tflite
 .DS_Store
 .ipynb_checkpoints/
 .env
+=======
+*.ipynb_checkpoints/
+NewData/
+Saved Models/
+Test data/
+.DS_Store
+>>>>>>> da34be9 (Initial commit of full fingerprint-based blood group detection system)

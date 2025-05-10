@@ -1,0 +1,564 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('bg.webp') no-repeat center center fixed;
+  background-size: cover;
+  max-height: 100vh;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar h1 {
+  font-size: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.help-btn {
+  background: #fff;
+  color: #d63031;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.help-btn:hover {
+  background: #d63031;
+  color: #fff;
+}
+
+/* Main Layout */
+.main-content {
+  display: flex;
+  margin-top: 100px;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+}
+
+/* Left Side */
+.left-side {
+  width: 60%;
+  padding: 40px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Right Side */
+.right-side {
+  width: 40%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Upload Section */
+.upload-title {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 24px;
+  border-radius: 10px;
+}
+
+.upload-box {
+  width: 250px;
+  height: 250px;
+  border: 2px dashed #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+}
+
+.upload-box.dragover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Finger Selection Section */
+.finger-selection {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.finger-selection-title {
+  margin-top: 80px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* Hand Selection Buttons */
+.hand-selection-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.hand-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.hand-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hand-btn.active {
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.5);
+}
+
+/* Finger Buttons */
+.finger-buttons-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.finger-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+  min-width: 0; /* Allows text truncation */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.finger-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.finger-btn.active {
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.8);
+}
+
+/* Detect Button */
+.detect-btn {
+  background: #27ae60;
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.detect-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Right Side Result Boxes */
+.prediction-result-box,
+.blood-group-details-box,
+.did-you-know-box {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 15px;
+  margin: 1px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+.prediction-result-box{
+  padding: 15px;
+  width: 50%
+}
+
+.waste{
+  margin-top: 20px;
+}
+
+.prediction-result-box h2,
+.blood-group-details-box h2,
+.did-you-know-box h3 {
+  margin-bottom: 8px;
+  color: #d63031;
+}
+
+#predictionResult,
+#bloodGroupDetails {
+  font-size: 15px;
+}
+
+/* Did You Know Section */
+.did-you-know-box {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.did-you-know-box h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.fact-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.fact-content {
+  flex-grow: 1;
+  padding: 0 15px;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fact-content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.carousel-btn {
+  background: rgba(214, 48, 49, 0.7);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(214, 48, 49, 1);
+  transform: scale(1.1);
+}
+
+/* Blur Overlay */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.blur-overlay div:first-child {
+  font-size: 28px;
+  color: white;
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.blur-overlay div:last-child {
+  font-size: 72px;
+  font-weight: bold;
+  color: yellow;
+  opacity: 0;
+  animation: slideUp 0.8s 0.3s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Update your result boxes styling */
+.prediction-result-box {
+  transform: scale(0.95);
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.blood-group-details-box {
+  transition: transform 0.4s ease;
+}
+
+/* When results are shown */
+.results-visible .prediction-result-box {
+  transform: scale(1);
+  opacity: 1;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.results-visible .blood-group-details-box {
+  transform: translateY(20px);
+}
+
+.upload-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  .left-side, .right-side {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+  }
+  
+  .prediction-result-box,
+  .blood-group-details-box,
+  .did-you-know-box {
+    width: 90%;
+  }
+  
+  .finger-buttons-row {
+    flex-wrap: wrap;
+  }
+  
+  .finger-btn {
+    flex: 1 0 40%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Initial placeholder styling */
+.placeholder-content {
+  text-align: center;
+  color: #666;
+}
+
+.example {
+  background: rgba(255,255,255,0.7);
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+/* When results arrive */
+#bloodGroupDetails.updated {
+  color: #333; /* Darker text for actual results */
+}
+
+#bloodGroupDetails.updated .placeholder-content {
+  display: none;
+}
+
+.blood-type-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.example {
+  background: rgba(255,255,255,0.7);
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example span {
+  display: block;
+  text-align: center;
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+
+.example .type {
+  font-weight: bold;
+  display: block;
+  color: #d63031;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.page-reload {
+  bottom: 30px;
+  right: 30px;
+  width: 50px; /* Must be equal to height */
+  height: 50px; /* Must be equal to width */
+  background: #27ae60;
+  color: #fff;
+  font-size: 25px; /* Reduced from 50px for better proportion */
+  border: none;
+  border-radius: 50%; /* This makes it circular */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+  justify-content: center;
+  align-items: center; /* Center the icon vertically */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 5px 25px;
+  margin-top: 40px;
+}
+
+
+.page-reload::before {
+  content: "↻";
+  justify-content: center;
+}
+
+.page-reload:hover {
+  background: #27ae60;
+  transform: rotate(360deg) scale(1.1);
+}
+
+.page-reload.visible {
+  display: flex;
+  animation: fadeIn 5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.trait-highlight {
+  background-color: #f8f9fa;
+  border-left: 4px solid #dc3545;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.details-grid .detail-item:nth-child(3),
+.details-grid .detail-item:nth-child(6) {
+  grid-column: span 2;
+}
+
+
+.detail-item {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.blood-group-details-box {
+  opacity: 1; /* Changed from 0 to 1 */
+  visibility: visible; /* Changed from hidden */
+  transition: all 0.3s ease;
+}
+
+.blood-type-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.example {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.example:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#bloodGroupDetails {
+  min-height: 200px; /* Ensure space for content */
+}
+
+/* Add this to your CSS */
+.fade-out {
+  opacity: 0;
+  transition: opacity 3s ease-out;
+  pointer-events: none;
+}
+
+.page-reload {
+  transition: all 0.2s ease;
+}
